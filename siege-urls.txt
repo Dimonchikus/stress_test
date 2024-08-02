@@ -1,0 +1,5 @@
+http://localhost:8080/persons POST {"name": "dmytro", "surname": "shevchuk"}
+http://localhost:8080/persons POST {"name": "petro", "surname": "shevchenko"}
+http://localhost:8080/persons POST {"name": "panas", "surname": "melnyk"}
+http://localhost:8080/persons POST {"name": "hlib", "surname": "poroshenko"}
+http://localhost:8080/persons POST {"name": "nazar", "surname": "zelenskii"}

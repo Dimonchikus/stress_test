@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Save Person</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    input {
+      margin: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Save Person</h2>
+  <form id="itemForm">
+    <input type="text" id="name" placeholder="Name" required/><br/>
+    <input type="text" id="surname" placeholder="Surname" required/><br/>
+    <button type="button" onclick="saveItem()">Save</button>
+  </form>
+</div>
+
+<script>
+  function saveItem() {
+    const name = document.getElementById('name').value;
+    const surname = document.getElementById('surname').value;
+
+    const item = {
+      name: name,
+      surname: surname
+    };
+
+    fetch('/persons', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(item)
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert('Person saved successfully: ' + JSON.stringify(data));
+    })
+    .catch(error => {
+      alert('Error saving person: ' + error);
+    });
+  }
+</script>
+</body>
+</html>
